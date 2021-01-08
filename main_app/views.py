@@ -8,11 +8,10 @@ def index(request):
     widgits = Widgit.objects.all()
     return render(request, 'index.html', {'widgits': widgits})
 
-# class WidgitCreate(CreateView):
-#     model = widgits
-#     fields = "__all__"
+class WidgitCreate(CreateView):
+    model = Widgit
+    fields = "__all__"
     
-
 def delete_widgit(request, widgit_id):
     Widgit.objects.get(id=widgit_id).delete()
     return redirect('/')
